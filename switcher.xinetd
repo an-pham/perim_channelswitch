@@ -1,0 +1,12 @@
+# default: on
+# description: The channel switching server
+service switcher
+{
+	flags		= REUSE
+	socket_type = stream   
+	wait		= no
+	user		= nobody
+	server		= /usr/local/bin/switcher
+	disable		= no
+}
+
