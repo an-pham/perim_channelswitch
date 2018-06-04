@@ -32,14 +32,15 @@ end () {
 }
 
 show_dialog () {
-	$DIALOG --menu "`$GETTEXT \"Switch to:\"`" 10 35 2 1 Unencrypted\ Channel 2 Quantum\ Channel\ \(QKD\) 2> $FILE1 || end
+	$DIALOG --title "Switching between unencrypted and QKD encrypted channels" \
+			--menu "`$GETTEXT \"Switch to:\"`" 10 60 2 1 Unencrypted\ Channel 2 Quantum\ Channel\ \(QKD\) 2> $FILE1 || end
 	if cat $FILE1 | $SWITCHER > $FILE2 2> $ERROR
 	then
 		MSG="`$GETTEXT \"Result:\"` `cat $FILE2`\\n\\n`$GETTEXT \"Switch channel again?\"`"
-		$DIALOG --yesno "$MSG" 7 20 || end
+		$DIALOG --title "Result" --yesno "$MSG" 10 40 || end
 	else
 		MSG="`$GETTEXT \"Error:\"`\\n\\n`cat $ERROR`\\n\\n`$GETTEXT \"Switch channel again?\"`"
-		$DIALOG --yesno "$MSG" 10 35 || end
+		$DIALOG --title "Error" --yesno "$MSG" 10 40 || end
 	fi
 }
 
