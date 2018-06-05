@@ -27,7 +27,7 @@ sudo locale-gen
 **2. Install**
 
 ```
-cd /perim_channelswitch`
+cd /perim_channelswitch
 make
 ```
 
