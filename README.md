@@ -12,4 +12,6 @@ To run the program
 
 cd /perim_channelswitch
 make
-channel_switch
+
+Run with localization: Vietnamese
+

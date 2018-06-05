@@ -19,7 +19,7 @@ msgstr ""
 
 #: switcher_ui:38
 msgid "Switching between unencrypted and QKD encrypted channels"
-msgstr ""
+msgstr "Chuyển đổi kênh cho giao dịch Blockchain"
 
 #: switcher_ui:40
 msgid "Switch to:"

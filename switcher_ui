@@ -1,7 +1,4 @@
 #!/bin/bash
-export TEXTDOMAIN=switcher_ui
-
-. gettext.sh
 
 SWITCHER=switcher
 HOST=localhost
@@ -36,44 +33,35 @@ end () {
 
 show_dialog () {
 	$DIALOG --title "`$GETTEXT \"Switching between unencrypted and QKD encrypted channels\"`" \
-			--menu "`$GETTEXT \"Switch to:\"`" 10 60 2 1 Unencrypted\ Channel 2 Quantum\ Channel\ \(QKD\) 2> $FILE1 || end
-			# --menu "`$GETTEXT '\"Switch to:\"'`" 10 60 2 \
-			# 1 "`$GETTEXT '\"Unencrypted Channel\"'`" \
-			# 2 "`$GETTEXT '\"Quantum Channel (QKD)\"'`" \
-			# 2> $FILE1 || end
+			--menu "`$GETTEXT \"Switch to:\"`" 10 60 2 1 "`$GETTEXT \"Unencrypted Channel\"`" \
+			2 "`$GETTEXT \"Quantum Channel (QKD)\"`"  2> $FILE1 || end
+
 	if cat $FILE1 | $SWITCHER > $FILE2 2> $ERROR
 	then
-		# MSG="`$GETTEXT \"Result:\"` `cat $FILE2`\\n\\n`$GETTEXT \"Switch channel again?\"`"
-		MSG="$(gettext 'Result:') `cat $FILE2`\\n\\n$(gettext 'Switch channel again?')"
-		$DIALOG --title "$(gettext 'Result')" --yesno "$MSG" 10 40 || end
+		MSG="`$GETTEXT \"Result:\"` `cat $FILE2`\\n\\n`$GETTEXT \"Switch channel again?\"`"
+		$DIALOG --title "`$GETTEXT \"Result\"`" --yesno "$MSG" 10 40 || end
 	else
-		# MSG="`$GETTEXT \"Error:\"`\\n\\n`cat $ERROR`\\n\\n`$GETTEXT \"Switch channel again?\"`"
-		MSG="$(gettext 'Error:')\\n\\n`cat $ERROR`\\n\\n$(gettext 'Switch channel again?')"
-		$DIALOG --title "$(gettext 'Error')" --yesno "$MSG" 10 40 || end
+		MSG="`$GETTEXT \"Error:\"`\\n\\n`cat $ERROR`\\n\\n`$GETTEXT \"Switch channel again?\"`"
+		$DIALOG --title "`$GETTEXT \"Error\"`" --yesno "$MSG" 10 40 || end
 	fi
 }
 
 show_tui () {
-	# echo "`$GETTEXT \"Choose the channel you want to switch: 1 or 2. Type q to quit.\"`"
-	echo $(gettext 'Choose the channel you want to switch: 1 or 2. Type q to quit.')
+	echo "`$GETTEXT \"Choose the channel you want to switch: 1 or 2. Type q to quit.\"`"
+	echo "`$GETTEXT \"1 - Unencrypted Channel\"`"
+	echo "`$GETTEXT \"2 - Quantum Channel (QKD)\"`"
 
-	# echo "`$GETTEXT \"1 - Unencrypted Channel\"`"
-	echo $(gettext '1 - Unencrypted Channel')
-
-	# echo "`$GETTEXT \"2 - Quantum Channel (QKD)\"`"
-	echo $(gettext '2 - Quantum Channel (QKD)')
 	read CHOICE
+
 	if [ $CHOICE -eq 1 -o $CHOICE -eq 2 ]
 	then
 		echo $CHOICE > $FILE1
 		if cat $FILE1 | $SWITCHER > $FILE2 2> $ERROR
 		then
-			# echo "`$GETTEXT \"Result:\"` `cat $FILE2`" || end
-			echo "$(gettext 'Result:') `cat $FILE2`" || end
+			echo "`$GETTEXT \"Result:\"` `cat $FILE2`" || end
 
 		else
-			# echo "`$GETTEXT \"Error:\"` `cat $ERROR`" || end
-			echo "$(gettext 'Error:') `cat $ERROR`" || end
+			echo "`$GETTEXT \"Error:\"` `cat $ERROR`" || end
 
 		fi
 	elif [ "$CHOICE" = 'q' ]
@@ -81,7 +69,7 @@ show_tui () {
 		end
 		exit
 	else
-		echo $(gettext 'Wrong input!!! Please try again...')
+		echo "`$GETTEXT \"Wrong input!!! Please try again...\"`"
 	fi
 }
 
