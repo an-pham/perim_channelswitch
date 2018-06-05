@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-04 14:16-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: switcher_ui:38
+msgid "Switching between unencrypted and QKD encrypted channels"
+msgstr ""
+
+#: switcher_ui:40
+msgid "Switch to:"
+msgstr "Chuyển sang:"
+
+#: switcher_ui:40
+msgid "Unencrypted Channel"
+msgstr "Kênh không mã hoá"
+
+#: switcher_ui:40
+msgid "Quantum Channel (QKD)"
+msgstr "Kênh được mã hoá với QKD"
+
+#: switcher_ui:44 switcher_ui:69
+msgid "Result:"
+msgstr "Kết quả:"
+
+#: switcher_ui:44 switcher_ui:48
+msgid "Switch channel again?"
+msgstr "Thực hiện chuyển kênh lần nữa?"
+
+#: switcher_ui:45
+msgid "Result"
+msgstr "Kết quả"
+
+#: switcher_ui:48 switcher_ui:73
+msgid "Error:"
+msgstr "Lỗi:"
+
+#: switcher_ui:49
+msgid "Error"
+msgstr "Lỗi"
+
+#: switcher_ui:55
+msgid "Choose the channel you want to switch: 1 or 2. Type q to quit."
+msgstr "Chọn kênh bạn muốn chuyển: 1 hoặc 2. Nhập q để thoát."
+
+#: switcher_ui:58
+msgid "1 - Unencrypted Channel"
+msgstr "1 - Kênh không mã hoá"
+
+#: switcher_ui:61
+msgid "2 - Quantum Channel (QKD)"
+msgstr "2 - Kênh được mã hoá với QKD"
+
+#: switcher_ui:81
+msgid "Wrong input!!! Please try again..."
+msgstr "Sai tham số!!! Mời thử lại..."
