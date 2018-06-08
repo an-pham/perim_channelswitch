@@ -24,6 +24,8 @@ sudo nano /etc/locale.gen
 sudo locale-gen
 ```
 
+*Bal rest-api server is up and running*
+
 **2. Install**
 
 ```
